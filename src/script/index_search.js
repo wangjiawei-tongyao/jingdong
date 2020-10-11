@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="search-inner">
-        <div>
-            <input type="text" placeholder="手机">
-            <ul></ul>
-        </div>
-        <button>搜索</button>
-    </div>
-</body>
-<script>
+;
+! function() {
     const search = document.querySelector('.search-inner div input');
     const list = document.querySelector('.search-inner div ul');
 
@@ -41,6 +24,4 @@
         cS.id = 'scriptelement';
         document.body.appendChild(cS);
     };
-</script>
-
-</html>
+}()

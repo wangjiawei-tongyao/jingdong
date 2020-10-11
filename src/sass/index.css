@@ -224,19 +224,104 @@ main {
 main .nav {
   height: 470px;
   float: left;
+  position: relative;
 }
-main .nav ul {
+main .nav > ul {
   padding: 10px 0;
   background-color: #fff;
   width: 190px;
 }
-main .nav ul li {
+main .nav > ul > li {
   padding-left: 18px;
   height: 25px;
   line-height: 25px;
 }
-main .nav ul li a {
+main .nav > ul > li a {
   color: #333;
+}
+main .nav > ul > li a:hover {
+  color: #e1251b;
+}
+main .nav .navlist {
+  position: absolute;
+  left: 190px;
+  top: 0;
+  width: 998px;
+  min-height: 468px;
+  border: 1px solid #f7f7f7;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  display: none;
+  transition: top 0.3s ease;
+  z-index: 9999;
+}
+
+.nav ul li.active {
+  background-color: #d9d9d9;
+}
+
+.itemlist {
+  padding: 20px 0 10px;
+}
+.itemlist .cate_channel {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+}
+.itemlist .cate_channel a {
+  display: inline-block;
+  background: #333;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 10px;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 12px;
+}
+.itemlist .cate_channel a:hover {
+  background-color: #e1251b;
+}
+.itemlist .cate_detail {
+  font-size: 12px;
+  width: 600px;
+  padding: 10px 0 0 20px;
+}
+.itemlist .cate_detail dl {
+  position: relative;
+  padding-left: 80px;
+  margin: 10px 0;
+}
+.itemlist .cate_detail dl dt {
+  position: absolute;
+  width: 75px;
+  left: 0;
+  top: 6px;
+  text-align: right;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.itemlist .cate_detail dl dt a {
+  color: #333;
+}
+.itemlist .cate_detail dl dt a:hover {
+  color: #e1251b;
+}
+.itemlist .cate_detail dl dd {
+  padding: 5px 0;
+}
+.itemlist .cate_detail dl dd a {
+  color: #666;
+  margin: 3px 0;
+  padding: 0 7px;
+  height: 16px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.itemlist .cate_detail dl dd a:hover {
+  color: #e1251b;
 }
 
 /* 滚动出现的搜索框 */
@@ -496,6 +581,76 @@ main .nav ul li a {
   width: 28px;
   height: 28px;
   margin: 3px auto;
+}
+
+/* 渲染的数据 */
+.main-part1 .title {
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 150px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  position: relative;
+}
+.main-part1 .title::before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 20px;
+  background: url(https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/floor_hd/sprite.png) no-repeat;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -10px;
+}
+.main-part1 .title::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 20px;
+  background: url(https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/floor_hd/sprite.png) no-repeat;
+  background-position: -25px 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  right: 0;
+}
+
+.plist ul {
+  display: flex;
+  width: 1190px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.plist ul li {
+  width: 230px;
+  height: 322px;
+  background-color: #fff;
+  height: 310px;
+  margin-bottom: 10px;
+}
+.plist ul li p {
+  width: 190px;
+  height: 48px;
+  color: #666;
+  line-height: 24px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.plist ul li img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  padding: 32px;
+  font-size: 12px;
+}
+.plist ul li span {
+  display: block;
+  color: #e1251b;
+  font-size: 20px;
+  padding: 5px 0 0 15px;
 }
 
 /* 尾部 */
