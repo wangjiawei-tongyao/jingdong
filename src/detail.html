@@ -7,8 +7,8 @@
     <meta name="description" content="京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!">
     <meta name="Keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东">
     <title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
-    <link rel="stylesheet" href="../src/sass/reset.css">
-    <link rel="stylesheet" href="../src/sass/detail.css">
+    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/detail.css">
     <script src="../src/script/require.js" defer async="true" data-main="../src/script/main_detail.js"></script>
 </head>
 
@@ -26,7 +26,7 @@
                     <button>搜索</button>
                 </div>
                 <div class="shopingcar-top">
-                    <em></em>我的购物车
+                    <a href="cart.html" target="_blank">我的购物车</a>
                 </div>
             </div>
         </div>
@@ -303,7 +303,7 @@
                             <button>搜索</button>
                         </div>
                         <div class="shopingcar">
-                            <em></em>我的购物车
+                            <a href="cart.html" target="_blank">我的购物车</a>
                         </div>
                     </div>
                     <div class="hotwords">
@@ -338,37 +338,42 @@
     </header>
     <main>
         <section class="wrapper">
-            <div class="goodsinfo clearfix" height="900px">
-                <div class="box">
-                    <a href="cart.html" target="_blank">进入购物车</a>
-                </div>
+            <div class="goodsinfo clearfix">
                 <div class="wrap">
                     <div id="spic">
-                        <img src="" alt="" id="smallpic">
+                        <img src="" alt="img" id="smallpic">
                         <div id="sf"></div>
                     </div>
                     <div id="bf">
                         <img src="" alt="" id="bpic">
                     </div>
+                    <a href="javascript:;" id="left">&lt;</a>
                     <div id="ulist" class="clearfix">
-                        <a href="javascript:;" id="left">&lt;</a>
+
                         <div id="list">
                             <ul>
 
                             </ul>
                         </div>
-                        <a href="javascript:;" id="right">&gt;</a>
+
                     </div>
+                    <a href="javascript:;" id="right">&gt;</a>
                 </div>
                 <div class="goodsinfo-word">
-                    <div class="p-name">
-                        <a class="loadtitle" href="#"></a>
+                    <div class="name">
+                        <a class="title" href="#"></a>
                     </div>
-                    <div class="p-price"><strong><em>￥</em><i class="loadpcp"></i></strong></div>
-                    <div class="p-btn">
-                        <input type="text" id="count" value="1" />
-                        <a href="javascript:;">加入购物车</a>
+                    <div class="price"><em>￥</em><i class="p-price"></i></div>
+                    <div class="btn">
+                        <div class="btn_input">
+                            <input type="text" id="count" value="1" />
+                            <div class="btn_num">
+                                <a href="">+</a>
+                                <a href="">-</a>
+                            </div>
 
+                        </div>
+                        <div class="shopcar"><a href="javascript:;">加入购物车</a></div>
                     </div>
                 </div>
             </div>
@@ -499,6 +504,6 @@
     </footer>
 
 </body>
-</script>
+<!-- <script src="http://localhost:8080/jingdong/src/script/jscookie.js"></script> -->
 
 </html>

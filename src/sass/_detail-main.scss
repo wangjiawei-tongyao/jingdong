@@ -1,0 +1,188 @@
+/* 主体 */
+
+@mixin borderstyle($size:1px, $style:solid, $color:#ccc) {
+    border: $size $style $color;
+}
+
+@mixin boxsize($w:300px, $h:30px) {
+    width: $w;
+    height: $h;
+    line-height: $h;
+}
+
+@mixin postion($direction:left, $positionvalue:absolute, $value1:0px, $value2:0px) {
+    @if ($direction==left) {
+        position: $positionvalue;
+        left: $value1;
+        top: $value2;
+    }
+    @else {
+        position: $positionvalue;
+        right: $value1;
+        top: $value2;
+    }
+}
+
+#spic {
+    width: 450px;
+    height: 450px;
+    @include borderstyle();
+    float: left;
+    position: relative;
+    img {
+        width: 450px;
+        height: 450px;
+    }
+}
+
+#sf {
+    // @include boxsize(50px, 50px);
+    background: yellow;
+    opacity: 0.3;
+    @include postion();
+    visibility: hidden;
+}
+
+#bf {
+    @include boxsize(540px, 540px);
+    @include borderstyle();
+    overflow: hidden;
+    @include postion(left, absolute, 453px);
+    visibility: hidden;
+    z-index: 100;
+    img {
+        @include postion();
+        width: 800px;
+        height: 800px;
+    }
+}
+
+.wrap {
+    position: relative;
+    width: 452px;
+    a {
+        @include boxsize(22px, 32px);
+        @include borderstyle();
+        text-align: center;
+        background: #fff;
+        color: #666;
+        font-size: 20px;
+    }
+    #ulist {
+        @include postion(left, absolute, 0px, 460px);
+        @include boxsize(380px, 58px);
+        overflow: hidden;
+        margin-left: 30px;
+        #list {
+            @include boxsize(380px, 58px);
+            ul {
+                display: flex;
+                @include postion();
+                li {
+                    @include boxsize(54px, 54px);
+                    margin: 0 12px;
+                    &:hover img {
+                        @include borderstyle(2px, solid, #f00);
+                    }
+                    img {
+                        @include boxsize(50px, 50px);
+                        @include borderstyle(2px, solid, #fff);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#right {
+    @include postion(right, absolute, 0, 470px);
+}
+
+#left {
+    @include postion(left, absolute, 0, 470px);
+    z-index: 888;
+}
+
+.goodsinfo {
+    margin: 100px 0 0 100px;
+}
+
+.goodsinfo-img {
+    width: 200px;
+    height: 200px;
+    float: left;
+    img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.goodsinfo-word {
+    overflow: hidden;
+    float: left;
+    padding-left: 50px;
+}
+
+.name {
+    @include boxsize(450px, 25px);
+    margin: 10px 0 80px;
+    .title {
+        color: #666;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+
+.price {
+    @include boxsize(450px, 50px);
+    color: #f00;
+    background: #f3f3f3;
+    font-size: 20px;
+}
+
+.btn {
+    margin-top: 100px;
+    height: 46px;
+    .btn_input {
+        float: left;
+        width: 58px;
+        font-size: 20px;
+        color: black;
+        display: flex
+    }
+    input {
+        width: 43px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        display: block;
+        @include borderstyle();
+        border-right: 0;
+    }
+    .btn_num {
+        a {
+            display: block;
+            width: 15px;
+            height: 23px;
+            line-height: 23px;
+            text-align: center;
+            @include borderstyle();
+            color: #333;
+            font-size: 10px;
+            background-color: #f1f1f1;
+        }
+    }
+}
+
+.shopcar>a {
+    display: block;
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    font-size: 16px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+}

@@ -4,6 +4,7 @@ define([], function() {
         list: ! function() {
             let array_default = []; //排序前的li数组
             let array = []; //排序中的数组
+            let array_floor = [];
             //冒泡排序，比较相邻的两个数字。
             let prev = null; //前一个商品价格
             let next = null; //后一个商品价格
@@ -16,13 +17,13 @@ define([], function() {
                 let str = '';
                 $.each($.parseJSON(data), function(index, value) {
                     str += `
-                        <a href="detail.html?sid=${value.sid}">
-                        <li>
+                    <li>
+                        <a href="detail.html?sid=${value.sid}" target="_blank">
                            <img class="lazy" data-original="${value.url}" width="150px" height="150px">
                            <span class="price">￥${value.price}</span>
                            <p>${value.title}</p>
-                        </li>
                        </a>
+                       </li>
                         `;
                 })
                 piclist.html(str);
@@ -32,6 +33,7 @@ define([], function() {
                 $('.piclist li').each(function(index, element) {
                     array[index] = $(this);
                     array_default[index] = $(this);
+                    array_floor[index] = $(this);
                     // console.log(array_default);
                     // console.log(array);
                 });
@@ -55,13 +57,13 @@ define([], function() {
                         let str = ''
                         $.each($.parseJSON(data), function(index, value) {
                             str += `
-                                <a href="detail.html?sid=${value.sid}">
-                                <li>
+                            <li>
+                                <a href="detail.html?sid=${value.sid}" target="_blank">
                                    <img class="lazy" data-original="${value.url}" width="150px" height="150px">
                                    <span class="price">￥${value.price}</span>
                                    <p>${value.title}</p>
+                                   </a>
                                 </li>
-                               </a>
                                 `;
                         })
                         piclist.html(str);
@@ -70,11 +72,13 @@ define([], function() {
                         });
                         array_default = [];
                         array = [];
+                        array_floor = [];
                         prev = null;
                         next = null;
                         $('.piclist li').each(function(index, element) {
                             array[index] = $(this);
                             array_default[index] = $(this);
+                            array_floor[index] = $(this);
                         })
                     })
                 }
@@ -110,23 +114,23 @@ define([], function() {
                     $('.piclist ul').append(value)
                 })
             });
-            // 升序排序
+            // 降序排序
             $('.btn button').eq(2).on('click', function() {
-                for (let i = 0; i < array.length; i++) {
-                    for (let j = 0; j < array.length - i - 1; j++) {
+                for (let i = 0; i < array_floor.length; i++) {
+                    for (let j = 0; j < array_floor.length - i - 1; j++) {
                         // console.log($('.price').html());
-                        prev = parseFloat(array[j].find('.price').html().substring(1));
-                        next = parseFloat(array[j + 1].find('.price').html().substring(1));
+                        prev = parseFloat(array_floor[j].find('.price').html().substring(1));
+                        next = parseFloat(array_floor[j + 1].find('.price').html().substring(1));
                         // console.log(prev);
                         if (prev < next) {
-                            let temp = array[j]
-                            array[j] = array[j + 1]
-                            array[j + 1] = temp
+                            let temp = array_floor[j]
+                            array_floor[j] = array_floor[j + 1]
+                            array_floor[j + 1] = temp
                         }
                     }
                 }
                 $('.piclist ul').empty();
-                $.each(array, function(index, value) {
+                $.each(array_floor, function(index, value) {
                     $('.piclist ul').append(value)
                 })
             });
