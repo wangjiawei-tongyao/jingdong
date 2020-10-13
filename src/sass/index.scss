@@ -83,7 +83,7 @@ header {
     .dropdown-part3 {
         position: absolute;
         z-index: 999;
-        right: 30px;
+        right: 0px;
         width: 170px;
         p {
             width: 170px;
@@ -279,7 +279,7 @@ main {
     }
 }
 
-.nav ul li.active {
+.nav ul li:hover {
     background-color: #d9d9d9;
 }
 
@@ -477,17 +477,19 @@ main {
     position: relative;
     width: 190px;
     height: 470px;
-    div {
-        position: absolute;
+    .picside {
+        position: relative;
         ul {
+            position: absolute;
+            top: 0;
             img {
                 width: 190px;
                 height: 150px;
             }
         }
     }
-    #left,
-    #right {
+    #leftside,
+    #rightside {
         width: 25px;
         height: 35px;
         line-height: 35px;
@@ -500,12 +502,12 @@ main {
         text-decoration: none;
         background-color: rgba(0, 0, 0, .2);
     }
-    #right {
+    #rightside {
         right: 0px;
         border-top-left-radius: 18px;
         border-bottom-left-radius: 18px;
     }
-    #left {
+    #leftside {
         border-top-right-radius: 18px;
         border-bottom-right-radius: 18px;
     }
@@ -624,9 +626,58 @@ main {
 }
 
 
-/* 渲染的数据 */
+/* 主体渲染的数据part1 */
 
-.main-part1 {
+.main_part1 {
+    .part1_plist {
+        margin-right: -10px;
+        // background: darkslateblue;
+        height: 950px;
+        .part1_plist_inner {
+            float: left;
+            background-color: #fff;
+            width: 290px;
+            height: 180px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            .part1_plist_img {
+                padding-left: 30px;
+                img {
+                    display: inline-block;
+                }
+            }
+            p {
+                padding: 17px 0 13px;
+                margin: 0 10px 0 30px;
+                span {
+                    color: #333;
+                    font-size: 22px;
+                }
+                strong {
+                    color: #999;
+                    font-size: $fontsize;
+                }
+            }
+        }
+    }
+}
+
+#part1_plist_inner1,
+#part1_plist_inner2 {
+    height: 370px;
+    p {
+        padding: 0;
+        margin: 0;
+    }
+    .part1_plist_img {
+        padding-left: 0;
+    }
+}
+
+
+/* 主体渲染的数据part2 */
+
+main {
     .title {
         margin: 0 auto;
         padding: 20px 0;
