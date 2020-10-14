@@ -1,0 +1,192 @@
+    @charset "UTF-8";
+    $fontsize:12px;
+    @mixin borderstyle($size:1px, $style:solid, $color:#ccc) {
+        border: $size $style $color;
+    }
+    
+    @mixin boxsize($w:300px, $h:30px) {
+        width: $w;
+        height: $h;
+        line-height: $h;
+    }
+    
+    @mixin postion($direction:left, $positionvalue:absolute, $value1:0px, $value2:0px) {
+        @if ($direction==left) {
+            position: $positionvalue;
+            left: $value1;
+            top: $value2;
+        }
+        @else {
+            position: $positionvalue;
+            right: $value1;
+            top: $value2;
+        }
+    }
+    /* 头部导航 */
+    
+    header {
+        font-size: $fontsize;
+        .head-top {
+            a {
+                color: #999;
+                line-height: 30px;
+                padding: 0px 7px;
+            }
+        }
+    }
+    
+    .nav-top .fr .spacer {
+        color: #ccc;
+        line-height: 30px;
+        padding: 0 7px;
+    }
+    
+    .head-top {
+        background-color: #e3e4e5;
+        height: 30px;
+    }
+    
+    .dropdown {
+        display: none;
+        padding: 10px 0 10px 15px;
+        background-color: #fff;
+        box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2), -2px 0px 2px 0px rgba(0, 0, 0, 0.2);
+        .drop-left {
+            float: left;
+            div {
+                line-height: 24px;
+                font-size: 10px;
+                a {
+                    padding: 0;
+                }
+            }
+        }
+        img {
+            @include boxsize(70px, 70px)
+        }
+    }
+    
+    .nav-top .fr .bgw:hover {
+        background-color: #fff;
+    }
+    
+    .nav-top .fr li {
+        position: relative;
+        float: left;
+        a:hover {
+            color: #f00;
+        }
+        &:hover .dropdown {
+            display: block;
+        }
+        .dropdown-part1 {
+            position: absolute;
+            width: 280px;
+            z-index: 999;
+            left: 0;
+            .drop-left {
+                div {
+                    width: 126px;
+                }
+            }
+        }
+        .dropdown-part2 {
+            position: absolute;
+            width: 140px;
+            z-index: 999;
+            left: 0;
+            .drop-left {
+                div {
+                    width: 60px;
+                }
+            }
+        }
+        .dropdown-part3 {
+            position: absolute;
+            z-index: 999;
+            right: 0px;
+            width: 170px;
+            p {
+                @include boxsize(170px, 30px);
+            }
+            .drop-left div {
+                width: 70px;
+            }
+        }
+        .dropdown-part4 {
+            position: absolute;
+            z-index: 999;
+            right: -84px;
+            width: 1188px;
+            .line {
+                border-right: 1px solid #f4f4f4;
+                padding-left: 20px;
+                p {
+                    height: 30px;
+                }
+                .drop-left {
+                    div {
+                        width: 85px;
+                    }
+                }
+            }
+        }
+        .dropdown-part5 {
+            position: absolute;
+            z-index: 999;
+            right: 0px;
+            .mobile-pop {
+                display: flex;
+                @include boxsize(190px, 70px);
+                padding: 15px 0;
+                img {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    /* 搜索框*/
+    /* 搜索框前的logo*/
+    
+    .logo_search {
+        height: 110px;
+        position: relative;
+        .logo {
+            @include postion(left, absolute, 0, 10px);
+            a {
+                background: url(https://misc.360buyimg.com/jdf/1.0.0/unit/global-header/5.0.0/i/jdlogo-201708-@1x.png) no-repeat;
+                display: block;
+                @include boxsize(134px, 42px);
+                overflow: hidden;
+                margin-top: 20px;
+            }
+        }
+    }
+    /* 搜索框框*/
+    
+    .search {
+        .search-inner {
+            @include postion(right, absolute, 0, 35px);
+            @include boxsize(546x, 32px);
+            @include borderstyle(2px, solid, #e2231a);
+            background-color: #fff;
+            display: flex;
+            div {
+                @include boxsize(260px, 26px);
+                font-size: $fontsize;
+                padding: 2px 44px 2px 17px;
+                @include borderstyle(1px, solid, transparent);
+                input {
+                    color: #666;
+                }
+            }
+            button {
+                @include boxsize(546x, 32px);
+                border: 0;
+                background-color: #e1251b;
+                font-size: 20px;
+                font-weight: bold;
+                color: #fff;
+            }
+        }
+    }

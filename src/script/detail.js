@@ -3,7 +3,7 @@ define([], function() {
         plist: ! function() {
             //1.获取列表页传来的sid
             let $sid = location.search.substring(1).split('=')[1];
-            console.log($sid);
+            // console.log($sid);
             const $smallpic = $('#smallpic')
             const $bpic = $('#bpic')
             const $title = $('.title')
@@ -21,7 +21,7 @@ define([], function() {
                 },
                 dataType: 'json'
             }).done(function(data) {
-                console.log(data);
+                // console.log(data);
                 // 渲染大图
                 $smallpic.attr('src', data.url)
                 $smallpic.attr('sid', data.sid)
@@ -30,7 +30,7 @@ define([], function() {
                 $price.html(data.price)
                     //渲染小图
                 let picarr = data.piclisturl.split(',')
-                console.log(picarr);
+                    // console.log(picarr);
                 let str = '';
                 $.each(picarr, function(index, value) {
                     str += '<li><img src="' + value + '"/></li>';
@@ -110,7 +110,6 @@ define([], function() {
             });
             $left.on('click', function() {
                 let $lists = $('#list ul li');
-                console.log(1);
                 if ($num > 5) { //限制点击的条件
                     $num--;
                     $right.css('color', '#333');
@@ -142,6 +141,7 @@ define([], function() {
             $('.btn .shopcar a').on('click', function() {
                 //获取当前商品对应的sid
                 let $sid = $(this).parents('.goodsinfo').find('#smallpic').attr('sid');
+                // console.log($sid);
                 //判断是第一次点击还是多次点击
                 //多次点击
                 //$.inArray(value,array,[fromIndex])
@@ -151,17 +151,47 @@ define([], function() {
                     //先取出cookie中存在的数量+当前添加的数量，一起添加到cookie中。
                     let $num = parseInt(arrnum[$.inArray($sid, arrsid)]) + parseInt($('#count').val()); //取值
                     arrnum[$.inArray($sid, arrsid)] = $num; //赋值
-                    jscookie.add('cookienum', arrnum, 10);
+                    jscookie.add('cookienum', arrnum, 100);
                 } else {
                     //第一次点击加入购物车按钮,将商品的sid和商品的数量放到提前准备的数组里面，然后将数组传入cookie.
                     arrsid.push($sid); //将编号$sid push到arrsid数组中
-                    jscookie.add('cookiesid', arrsid, 10);
+                    jscookie.add('cookiesid', arrsid, 100);
                     arrnum.push($('#count').val()); //将数量push到arrnum数组中
-                    jscookie.add('cookienum', arrnum, 10);
+                    jscookie.add('cookienum', arrnum, 100);
                 }
-                alert('按钮触发了');
-            });
 
+            });
+            const $increase = $('#increase');
+            const $reduce = $('#reduce');
+
+            $increase.on('click', function() {
+                var $increasevalue = $(this).parents('.btn_input').find('#count').val();
+                $increasevalue++;
+                $(this).parents('.btn_input').find('input').val($increasevalue);
+                $reduce.css('color', '#666');
+            })
+            $reduce.on('click', function() {
+                var $increasevalue = $(this).parents('.btn_input').find('#count').val();
+                $increasevalue--;
+                if ($increasevalue <= 1) {
+                    $increasevalue = 1;
+                    $reduce.css('color', '#ccc');
+                    $reduce.css('cursor', 'not-allowed')
+
+
+                }
+                $(this).parents('.btn_input').find('#count').attr('value', $increasevalue);
+
+            })
+            $reduce.hover(function() {
+                var $increasevalue = parseInt($(this).parents('.btn_input').find('#count').attr('value'));
+                if ($increasevalue <= 1) {
+                    $reduce.css('cursor', 'not-allowed')
+                } else {
+                    $reduce.css('cursor', 'pointer')
+                }
+
+            })
         }(),
 
     }
