@@ -1,0 +1,206 @@
+@charset "UTF-8";
+html,
+body,
+ol,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 14px;
+  font-family: '微软雅黑';
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-size: 16px; */
+  font-weight: normal;
+}
+
+b,
+strong {
+  font-weight: normal;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+  display: block;
+}
+
+input,
+fieldset,
+select {
+  outline: none;
+  border: 0;
+}
+
+.clearfix:after {
+  content: '.';
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.wrapper {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 990px;
+  margin: 0 auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/* 头部 */
+body {
+  font-size: 12px;
+  color: #999;
+}
+
+.head {
+  box-shadow: 3px 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.top {
+  height: 60px;
+  padding: 10px 0 30px;
+  position: relative;
+}
+
+.welcome {
+  width: 96px;
+  height: 34px;
+  position: relative;
+  font-size: 24px;
+  color: #333;
+  top: 20px;
+  left: 20px;
+}
+
+.logo-r {
+  position: relative;
+  top: 45px;
+}
+
+.logo-r a {
+  color: #e22;
+  font-size: 12px;
+}
+.logo-r a:hover {
+  text-decoration: underline;
+}
+
+/* 主体 */
+.registry {
+  width: 400px;
+  margin: auto;
+  padding: 40px 0;
+}
+.registry .form .input {
+  width: 398px;
+  height: 50px;
+  line-height: 50px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  text-align: right;
+}
+.registry .form .input input {
+  width: 320px;
+  height: 50px;
+  line-height: 50px;
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
+}
+
+#submit {
+  background-color: #e2231a;
+  font-size: 20px;
+  color: #fff;
+  margin: auto;
+  width: 398px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.tishikuang {
+  height: 50px;
+  width: 200px;
+  position: absolute;
+  left: 410px;
+  text-align: left;
+}
+
+/* 尾部 */
+footer .bot-nav {
+  padding-top: 20px;
+}
+
+footer a {
+  padding: 0 10px;
+  color: #666;
+}
+footer a:hover {
+  color: #e22;
+  text-decoration: underline;
+}
+
+footer .copy {
+  text-align: center;
+  padding: 10px 0 30px;
+  color: #666;
+}
+
+/*# sourceMappingURL=registry.css.map */

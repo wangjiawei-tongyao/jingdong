@@ -1,188 +1,302 @@
-.inner {
-    width: 990px;
-    margin: 0 auto;
+@charset "UTF-8";
+html,
+body,
+ol,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-size: 12px;
-    color: #999
+  font-size: 14px;
+  font-family: '微软雅黑';
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-size: 16px; */
+  font-weight: normal;
+}
+
+b,
+strong {
+  font-weight: normal;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+  display: block;
+}
+
+input,
+fieldset,
+select {
+  outline: none;
+  border: 0;
+}
+
+.clearfix:after {
+  content: '.';
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.wrapper {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 990px;
+  margin: 0 auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+body {
+  font-size: 12px;
+  color: #999;
 }
 
 .top {
-    height: 60px;
-    padding: 10px 0;
-    position: relative;
+  height: 60px;
+  padding: 10px 0;
+  position: relative;
 }
 
 .welcome {
-    background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/l-icon.png) no-repeat;
-    width: 110px;
-    height: 40px;
-    position: relative;
-    top: 20px;
-    left: 20px;
+  background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/l-icon.png) no-repeat;
+  width: 110px;
+  height: 40px;
+  position: relative;
+  top: 20px;
+  left: 20px;
 }
 
 .logo-r {
-    position: relative;
-    top: 45px;
+  position: relative;
+  top: 45px;
 }
 
 .logo-r a {
-    color: #999;
+  color: #999;
+}
+.logo-r a:hover {
+  color: #e22;
+  text-decoration: underline;
 }
 
 main .tips-inner p {
-    padding: 10px 0;
-    text-align: center;
+  padding: 10px 0;
+  text-align: center;
 }
 
 main .banner {
-    height: 475px;
-    background-color: #0137b5;
+  height: 475px;
+  background-color: #f5d800;
 }
 
 main .banner .banner-bg {
-    background: url(https://img11.360buyimg.com/da/jfs/t1/127678/3/13758/74907/5f72a6a7E654dcb91/9dd45c69bfd345d7.jpg) no-repeat;
-    height: 475px;
+  background: url(https://img13.360buyimg.com/da/jfs/t1/121329/10/14968/43502/5f86ac47Edb8a0499/64a57d3a79b9abe7.jpg) no-repeat;
+  height: 475px;
 }
 
 main .banner-inner {
-    height: 475px;
-    position: relative;
+  height: 475px;
+  position: relative;
 }
 
 main a {
-    color: #333;
+  color: #333;
 }
 
-
 /* 账号登录 */
-
 .login-form {
-    width: 350px;
-    background-color: #fff;
-    position: absolute;
-    right: 0;
-    top: 10px;
-    text-align: center;
+  width: 350px;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  text-align: center;
 }
 
 .login-form .tips span {
-    display: block;
-    padding: 10px 0;
-    background-color: #fff8f0;
+  display: block;
+  padding: 10px 0;
+  background-color: #fff8f0;
 }
 
 .login-form .tab {
-    display: flex;
-    font-size: 18px;
+  display: flex;
+  font-size: 18px;
 }
 
 .login-input a {
-    display: inline-block;
-    height: 18px;
-    width: 306px;
-    margin: 20px 0;
-    text-align: right;
+  display: inline-block;
+  height: 18px;
+  width: 306px;
+  margin: 20px 0;
+  text-align: right;
 }
 
 .login-input a:hover {
-    color: #f00;
-    text-decoration: underline;
+  color: #f00;
+  text-decoration: underline;
 }
 
-.login-input button {
-    width: 302px;
-    background-color: #e4393c;
-    color: #fff;
-    font-size: 20px;
-    line-height: 31px;
-    border: #e4393c 2px solid;
-    margin-bottom: 30px;
+.login-input .btn {
+  width: 302px;
+  background-color: #e4393c;
+  color: #fff;
+  font-size: 20px;
+  line-height: 31px;
+  border: #e4393c 2px solid;
+  margin-bottom: 30px;
 }
 
 .login-form .login-tab {
-    width: 173px;
-    height: 55px;
-    line-height: 55px;
+  width: 173px;
+  height: 55px;
+  line-height: 55px;
+}
+.login-form .login-tab:hover a {
+  color: #e22;
 }
 
 .login-form .login-input dl {
-    width: 304px;
-    height: 38px;
-    margin: 0 auto;
-    list-style: 38px;
-    border: 1px solid #999;
-    margin-top: 23px;
+  width: 304px;
+  height: 38px;
+  margin: 0 auto;
+  list-style: 38px;
+  border: 1px solid #999;
+  margin-top: 23px;
 }
 
 .login-form .login-input dt {
-    width: 38px;
-    height: 38px;
-    line-height: 38px;
-    border-right: 1px solid #999;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  border-right: 1px solid #999;
 }
 
 .login-form .login-input dt,
 .login-form .login-input dd {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.register {
-    height: 50px;
-    width: 306px;
-    margin: 0 auto;
-    background-color: #fcfcfc;
-    line-height: 50px;
+.registry {
+  height: 50px;
+  width: 306px;
+  margin: 0 auto;
+  background-color: #fcfcfc;
+  line-height: 50px;
 }
 
-.register .regist-left li {
-    display: inline-block;
+.registry .regist-left li {
+  display: inline-block;
 }
 
-.register .regist-left li a:hover {
-    color: #f00;
-    text-decoration: underline;
+.registry .regist-left li a:hover {
+  color: #f00;
+  text-decoration: underline;
 }
 
-.register .regist-link a {
-    font-size: 14px;
-    color: #b61d1d;
+.registry .regist-link a {
+  font-size: 14px;
+  color: #b61d1d;
 }
 
-.register .regist-link a:hover {
-    text-decoration: underline;
+.registry .regist-link a:hover {
+  text-decoration: underline;
 }
 
 .login-form .login-input dd input {
-    height: 18px;
-    width: 254px;
+  height: 18px;
+  width: 254px;
 }
-
 
 /* 扫码登录 */
-
 .login-box img {
-    padding: 30px 0 20px;
-    margin: auto;
+  padding: 30px 0 20px;
+  margin: auto;
+}
+.login-box p {
+  padding: 8px 0;
+}
+.login-box p span {
+  margin: 0 10px;
 }
 
-
 /* 尾部 */
-
 footer .bot-nav {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 footer a {
-    padding: 0 10px;
-    color: #666;
+  padding: 0 10px;
+  color: #666;
+}
+footer a:hover {
+  color: #e22;
+  text-decoration: underline;
 }
 
 footer .copy {
-    text-align: center;
-    padding: 10px 0 30px;
-    color: #666;
+  text-align: center;
+  padding: 10px 0 30px;
+  color: #666;
 }
+
+/*# sourceMappingURL=login.css.map */

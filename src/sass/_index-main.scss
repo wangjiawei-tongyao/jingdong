@@ -112,11 +112,19 @@ main {
 
 /* 滚动出现的搜索框 */
 
+.logo-scroll {
+    position: fixed;
+    top: -60px;
+    margin: auto;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999;
+}
+
 .search-top {
     height: 50px;
     position: relative;
     background-color: #fff;
-    // top: -60px;
     .search-inner-top {
         width: 546px;
         height: 32px;
@@ -387,12 +395,42 @@ main {
 }
 
 
+/* 侧边楼梯 */
+
+.loutinav {
+    width: 58px;
+    height: 406px;
+    position: fixed;
+    left: 50%;
+    margin-left: 630px;
+    top: 720px;
+    ul {
+        background-color: #fff;
+        li {
+            width: 58px;
+            height: 58px;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            color: #666;
+            &:hover {
+                background-color: #e1251b;
+                color: #fff;
+            }
+        }
+        .last {
+            line-height: 40px;
+        }
+    }
+}
+
+
 /* 主体渲染的数据part1 */
 
 .main_part1 {
     .part1_plist {
         margin-right: -10px;
-        // background: darkslateblue;
         height: 950px;
         .part1_plist_inner {
             float: left;

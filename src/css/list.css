@@ -1,4 +1,109 @@
 @charset "UTF-8";
+html,
+body,
+ol,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 14px;
+  font-family: '微软雅黑';
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-size: 16px; */
+  font-weight: normal;
+}
+
+b,
+strong {
+  font-weight: normal;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+  display: block;
+}
+
+input,
+fieldset,
+select {
+  outline: none;
+  border: 0;
+}
+
+.clearfix:after {
+  content: '.';
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.wrapper {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 990px;
+  margin: 0 auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 /* 头部导航 */
 header {
   font-size: 12px;
@@ -276,7 +381,7 @@ header .head-top a {
 /* 尾部 */
 footer {
   background-color: #f4f4f4;
-  margin-top: 100px;
+  padding-top: 100px;
 }
 
 .mod_service_inner {

@@ -6,7 +6,6 @@ define([], function() {
                 url: 'http://localhost:8080/jingdong/php/jingdong.php',
                 dataType: 'json'
             }).done(function(data) {
-                console.log(data);
                 let str = '';
                 $.each(data, function(index, value) {
                     str += ` 
@@ -126,7 +125,6 @@ define([], function() {
                 url: 'http://localhost:8080/jingdong/php/jingdong1.php',
                 dataType: 'json'
             }).done(function(data) {
-                console.log(data);
                 let str = '';
                 $.each(data, function(index, value) {
                     str += `
@@ -202,6 +200,44 @@ define([], function() {
                 }
             }
             new Lun().init();
+        }(),
+        move: ! function() {
+            $(window).on('scroll', function() {
+                let $top = $(window).scrollTop();
+                let $loutinavtop = $('.part1_plist').offset().top - $top
+                if ($top >= 600) {
+                    $('.logo-scroll').stop(true).animate({
+                        top: 0
+                    })
+                    $('.loutinav').stop(true).animate({
+                        top: 75
+                    })
+                } else {
+                    $('.logo-scroll').stop(true).animate({
+                        top: -60
+                    })
+                    $('.loutinav').css({
+                        top: $loutinavtop
+                    })
+                }
+            })
+            $('.last').on('click', function() {
+                $('html').animate({
+                    scrollTop: 0
+                })
+            })
+            $('.pingdao').on('click', function() {
+                let $pingdaotop = $('.part1_plist').offset().top - 120;
+                $('html').animate({
+                    scrollTop: $pingdaotop
+                })
+            })
+            $('.recommend').on('click', function() {
+                let $recommendtop = $('.main_part2').offset().top - 120;
+                $('html').animate({
+                    scrollTop: $recommendtop
+                })
+            })
         }()
 
     }

@@ -169,22 +169,22 @@ define([], function() {
                 $increasevalue++;
                 $(this).parents('.btn_input').find('input').val($increasevalue);
                 $reduce.css('color', '#666');
+
             })
             $reduce.on('click', function() {
                 var $increasevalue = $(this).parents('.btn_input').find('#count').val();
                 $increasevalue--;
+                $(this).parents('.btn_input').find('input').val($increasevalue);
                 if ($increasevalue <= 1) {
                     $increasevalue = 1;
+                    $(this).parents('.btn_input').find('input').val($increasevalue);
                     $reduce.css('color', '#ccc');
                     $reduce.css('cursor', 'not-allowed')
-
-
                 }
-                $(this).parents('.btn_input').find('#count').attr('value', $increasevalue);
-
             })
+
             $reduce.hover(function() {
-                var $increasevalue = parseInt($(this).parents('.btn_input').find('#count').attr('value'));
+                var $increasevalue = $(this).parents('.btn_input').find('#count').val();
                 if ($increasevalue <= 1) {
                     $reduce.css('cursor', 'not-allowed')
                 } else {

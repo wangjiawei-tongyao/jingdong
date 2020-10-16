@@ -200,9 +200,9 @@ i {
 }
 
 .cart-top-left {
-    height: 26px;
+    height: 30px;
     font-size: 16px;
-    line-height: 36px;
+    line-height: 30px;
     float: left;
     font-weight: 700;
 }
@@ -529,7 +529,7 @@ i {
 }
 
 .b-price {
-    width: 120px;
+    width: 100px;
     padding: 15px 40px 10px 0;
     overflow: hidden;
     text-align: right;
@@ -550,6 +550,10 @@ i {
     float: right;
     overflow: hidden;
     position: relative;
+}
+
+.b-price strong {
+    display: block;
 }
 
 .sales-promotion b {
