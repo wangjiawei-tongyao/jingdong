@@ -322,6 +322,14 @@ li {
   list-style: none;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 img {
   border: none;
 }
@@ -330,7 +338,7 @@ i {
   font-style: normal;
 }
 
-.wrappergwc {
+.inner {
   width: 990px;
   margin: 0 auto;
 }
@@ -359,7 +367,6 @@ article， aside， details， figcaption， figure， footer， header， hgrou
 img {
   display: block;
   height: auto;
-  vertical-align: top;
 }
 
 .video embed， .video object， .video iframe {
@@ -454,7 +461,7 @@ i {
   background: #c91623;
   color: white;
   text-align: center;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .empty-cart {
@@ -527,8 +534,8 @@ i {
 .areawrap b {
   display: block;
   position: absolute;
-  top: 0;
   right: 0;
+  top: 0;
   width: 17px;
   height: 24px;
   background-position: 0 0;
@@ -570,11 +577,10 @@ i {
 }
 
 .t-checkbox {
+  width: 122px;
   height: 18px;
   line-height: 18px;
-  padding-top: 7px;
-  width: 122px;
-  padding-left: 11px;
+  padding: 7px 0 0 11px;
 }
 
 .cart-checkbox input {
@@ -594,9 +600,9 @@ i {
 
 .t-prices {
   width: 120px;
+  height: 32px;
   padding-right: 40px;
   text-align: right;
-  height: 32px;
 }
 
 .t-quantity {
@@ -745,7 +751,7 @@ i {
   top: -5px;
   display: block;
   width: 7px;
-  height: 29px;
+  height: 29x;
 }
 
 .goods-item .b-goods {
@@ -819,11 +825,11 @@ i {
 .b-price .sales-promotion {
   display: block;
   width: 53px;
+  height: 18pxpx;
+  line-height: 18pxpx;
   border: 1px solid #f9d2d3;
   color: #e4393c;
-  height: 18px;
   text-align: left;
-  line-height: 17px;
   padding: 0 15px 0 8px;
   cursor: pointer;
   background: #fff;
@@ -839,11 +845,11 @@ i {
 
 .sales-promotion b {
   display: inline-block;
-  width: 7px;
-  height: 4px;
   position: absolute;
   right: 8px;
   top: 8px;
+  width: 7px;
+  height: 4x;
 }
 
 .b-quantity {
@@ -859,11 +865,9 @@ i {
 }
 
 .quantity-form a {
-  display: inline-block;
-  height: 18px;
-  line-height: 18px;
-  padding: 1px 0;
   width: 16px;
+  height: 18x;
+  padding: 1px 0;
   text-align: center;
   color: #666;
   margin: 0;
@@ -884,7 +888,7 @@ i {
   height: 22px;
   float: left;
   text-align: center;
-  background: white;
+  background: #fff;
 }
 
 .quantity-text {
@@ -933,8 +937,8 @@ i {
 
 .operation {
   float: left;
-  height: 50px;
   width: 310px;
+  height: 50px;
   line-height: 50px;
 }
 
@@ -966,15 +970,14 @@ i {
 
 .price-sum {
   float: right;
+  width: 220px;
   height: 43px;
   line-height: 20px;
   margin: 7px 20px 0 10px;
   color: #666;
-  width: 220px;
 }
 
 .price-sum span {
-  display: inline-block;
   width: 110px;
   height: 20px;
   float: left;
@@ -1094,7 +1097,7 @@ i {
   padding: 20px;
   background: #fff;
   margin: -1px 0 0 -1px;
-  border: 1px dashed #cacaca;
+  border: 1px solid #cacaca;
   overflow: hidden;
 }
 
@@ -1159,8 +1162,8 @@ i {
 
 .p-btn b {
   display: inline-block;
-  height: 18px;
   width: 18px;
+  height: 18px;
   margin-right: 5px;
   overflow: hidden;
   vertical-align: middle;
@@ -1196,17 +1199,14 @@ i {
   top: 50%;
   margin-top: -31px;
   z-index: 3;
-  display: block;
   width: 28px;
   height: 62px;
   line-height: 62px;
-  background: gray;
   background: rgba(0, 0, 0, 0.2);
   color: #fff;
   text-align: center;
   font-size: 22px;
   font-weight: 400;
-  font-family: simsun;
 }
 
 .left-btn {

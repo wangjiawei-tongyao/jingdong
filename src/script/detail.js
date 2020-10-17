@@ -130,8 +130,8 @@ define([], function() {
             //取出cookie,才能判断是第一次还是多次点击
             function cookietoarray() {
                 if (jscookie.get('cookiesid') && jscookie.get('cookienum')) {
-                    arrsid = jscookie.get('cookiesid').split(','); //获取cookie 同时转换成数组。[1,2,3,4]
-                    arrnum = jscookie.get('cookienum').split(','); //获取cookie 同时转换成数组。[12,13,14,15]
+                    arrsid = jscookie.get('cookiesid').split(','); 
+                    arrnum = jscookie.get('cookienum').split(','); 
                 } else {
                     arrsid = [];
                     arrnum = [];
@@ -139,24 +139,16 @@ define([], function() {
             }
 
             $('.btn .shopcar a').on('click', function() {
-                //获取当前商品对应的sid
                 let $sid = $(this).parents('.goodsinfo').find('#smallpic').attr('sid');
-                // console.log($sid);
-                //判断是第一次点击还是多次点击
-                //多次点击
-                //$.inArray(value,array,[fromIndex])
-                //确定第一个参数在数组中的位置，从0开始计数(如果没有找到则返回 -1 )。
                 cookietoarray();
-                if ($.inArray($sid, arrsid) != -1) { //$sid存在，商品列表存在，数量累加
-                    //先取出cookie中存在的数量+当前添加的数量，一起添加到cookie中。
+                if ($.inArray($sid, arrsid) != -1) { 
                     let $num = parseInt(arrnum[$.inArray($sid, arrsid)]) + parseInt($('#count').val()); //取值
                     arrnum[$.inArray($sid, arrsid)] = $num; //赋值
                     jscookie.add('cookienum', arrnum, 100);
                 } else {
-                    //第一次点击加入购物车按钮,将商品的sid和商品的数量放到提前准备的数组里面，然后将数组传入cookie.
-                    arrsid.push($sid); //将编号$sid push到arrsid数组中
+                    arrsid.push($sid); 
                     jscookie.add('cookiesid', arrsid, 100);
-                    arrnum.push($('#count').val()); //将数量push到arrnum数组中
+                    arrnum.push($('#count').val());
                     jscookie.add('cookienum', arrnum, 100);
                 }
 

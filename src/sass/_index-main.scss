@@ -1,5 +1,42 @@
 @charset "UTF-8";
 $fontsize:12px;
+@mixin borderstyle($size:1px, $style:solid, $color:#ccc) {
+    border: $size $style $color;
+}
+
+@mixin boxsize($w:300px, $h:30px) {
+    width: $w;
+    height: $h;
+    line-height: $h;
+}
+
+@mixin boxsizes($w:30px, $h:30px) {
+    width: $w;
+    height: $h;
+}
+
+@mixin postion($direction:left, $positionvalue:absolute, $value1:0px, $value2:0px) {
+    @if ($direction==left) {
+        position: $positionvalue;
+        left: $value1;
+        top: $value2;
+    }
+    @else {
+        position: $positionvalue;
+        right: $value1;
+        top: $value2;
+    }
+}
+
+@mixin ellipsis($w:300px, $h:30px) {
+    width: $w;
+    height: $h;
+    line-height: $h;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 
 /* 主体导航 */
 
@@ -8,7 +45,6 @@ main {
     padding-top: 10px;
     .nav {
         height: 470px;
-        float: left;
         position: relative;
         >ul {
             padding: 10px 0;
@@ -30,12 +66,9 @@ main {
             }
         }
         .navlist {
-            position: absolute;
-            left: 190px;
-            top: 0;
-            width: 998px;
-            min-height: 468px;
-            border: 1px solid #f7f7f7;
+            @include postion(left, absolute, 190px, 0);
+            @include boxsizes(998px, 468px);
+            @include borderstyle(1px, solid, #f7f7f7);
             background-color: #fff;
             box-shadow: 2px 0 5px rgba(0, 0, 0, .3);
             display: none;
@@ -75,10 +108,8 @@ main {
             padding-left: 80px;
             margin: 10px 0;
             dt {
-                position: absolute;
+                @include postion(left, absolute, 0, 6px);
                 width: 75px;
-                left: 0;
-                top: 6px;
                 text-align: right;
                 font-weight: bold;
                 white-space: nowrap;
@@ -126,28 +157,21 @@ main {
     position: relative;
     background-color: #fff;
     .search-inner-top {
-        width: 546px;
-        height: 32px;
-        border: 2px solid #e2231a;
+        @include boxsizes(546px, 32px);
+        @include borderstyle(2px, solid, #e2231a);
         display: flex;
-        position: absolute;
-        left: 260px;
-        top: 8px;
+        @include postion(left, absolute, 260px, 8px);
         div {
-            width: 425px;
-            height: 26px;
-            line-height: 26px;
+            @include boxsize( 425px, 26px);
             font-size: $fontsize;
             padding: 2px 44px 2px 17px;
-            border: 1px solid transparent;
+            @include borderstyle(1px, solid, transparent);
             input {
                 color: #666;
             }
         }
         button {
-            width: 58px;
-            height: 32px;
-            line-height: 32px;
+            @include boxsize(58px, 32px);
             border: 0;
             background-color: #e1251b;
             font-size: 20px;
@@ -156,16 +180,12 @@ main {
         }
     }
     .shopingcar-top {
-        width: 130px;
-        height: 34px;
-        line-height: 34px;
+        @include boxsize(130px, 34px);
         background-color: #fff;
         text-align: center;
-        border: 1px solid #eee;
+        @include borderstyle(1px, solid, #eee);
         color: #e1251b;
-        position: absolute;
-        top: 8px;
-        right: 230px;
+        @include postion(right, absolute, 230px, 8px);
     }
     .logo-top {
         position: absolute;
@@ -174,8 +194,7 @@ main {
             a {
                 background: url(https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/header/sprite.png) no-repeat 0 -120px;
                 display: block;
-                width: 125px;
-                height: 40px;
+                @include boxsize(125px, 40px);
                 overflow: hidden;
             }
         }
@@ -188,8 +207,7 @@ main {
 .piclist {
     float: left;
     padding: 0 10px;
-    width: 590px;
-    height: 470px;
+    @include boxsize(590px, 470px);
     position: relative;
     ul {
         li {
@@ -199,26 +217,23 @@ main {
     ol {
         position: absolute;
         left: 30px;
-        bottom: 15px;
+        bottom: -215px;
         li {
-            width: 8px;
-            height: 8px;
+            @include boxsize(8px, 8px);
             background-color: rgba(255, 255, 255, .4);
             margin-left: 4px;
-            border: 1px solid rgba(0, 0, 0, .05);
+            @include borderstyle(1px, solid, rgba(0, 0, 0, .05));
             display: inline-block;
             border-radius: 50%;
         }
         .active {
             background-color: #fff;
-            border: 2px solid rgba(0, 0, 0, .05);
+            @include borderstyle(2px, solid, rgba(0, 0, 0, .05));
         }
     }
     #left,
     #right {
-        width: 25px;
-        height: 35px;
-        line-height: 35px;
+        @include boxsize(25px, 35px);
         position: absolute;
         top: 50%;
         margin-top: -20px;
@@ -245,24 +260,20 @@ main {
 .piclist-side {
     float: left;
     position: relative;
-    width: 190px;
-    height: 470px;
+    @include boxsize(190px, 470px);
     .picside {
         position: relative;
         ul {
             position: absolute;
             top: 0;
             img {
-                width: 190px;
-                height: 150px;
+                @include boxsize(190px, 150px);
             }
         }
     }
     #leftside,
     #rightside {
-        width: 25px;
-        height: 35px;
-        line-height: 35px;
+        @include boxsize(25px, 35px);
         position: absolute;
         top: 50%;
         margin-top: -20px;
@@ -293,8 +304,7 @@ main {
 .sidenews {
     background-color: #fff;
     float: left;
-    width: 190px;
-    height: 470px;
+    @include boxsizes(190px, 470px);
     margin-left: 10px;
     font-size: $fontsize;
 }
@@ -308,8 +318,7 @@ main {
         padding-top: 15px;
         box-sizing: border-box;
         img {
-            width: 40px;
-            height: 40px;
+            @include boxsize(40px, 40px);
             padding: 2px;
             border-radius: 50px;
             margin: 0 10px 0 15px;
@@ -320,9 +329,7 @@ main {
         margin: 0 auto;
         a {
             display: inline-block;
-            width: 70px;
-            height: 25px;
-            line-height: 25px;
+            @include boxsize(70px, 25px);
             background-color: #f00;
             border-radius: 10px;
             text-align: center;
@@ -360,17 +367,11 @@ main {
             span {
                 background-color: rgba(225, 37, 27, .08);
                 color: #e1251b;
-                width: 35px;
-                height: 16px;
+                @include boxsize(35px, 16px);
             }
             a {
                 display: inline-block;
-                overflow: hidden;
-                line-height: 16px;
-                height: 16px;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                width: 135px;
+                @include ellipsis(135px, 16px);
                 vertical-align: middle;
                 margin-left: 5px;
             }
@@ -383,12 +384,10 @@ main {
     flex-wrap: wrap;
     text-align: center;
     div {
-        width: 63px;
-        height: 55px;
+        @include boxsizes(63px, 55px);
         margin: 0 auto;
         img {
-            width: 28px;
-            height: 28px;
+            @include boxsize(28px, 28px);
             margin: 3px auto;
         }
     }
@@ -398,8 +397,7 @@ main {
 /* 侧边楼梯 */
 
 .loutinav {
-    width: 58px;
-    height: 406px;
+    @include boxsizes(58px, 406px);
     position: fixed;
     left: 50%;
     margin-left: 630px;
@@ -407,8 +405,7 @@ main {
     ul {
         background-color: #fff;
         li {
-            width: 58px;
-            height: 58px;
+            @include boxsizes(58px, 58px);
             padding: 10px;
             box-sizing: border-box;
             text-align: center;
@@ -435,8 +432,7 @@ main {
         .part1_plist_inner {
             float: left;
             background-color: #fff;
-            width: 290px;
-            height: 180px;
+            @include boxsizes(290px, 180px);
             margin-bottom: 10px;
             margin-right: 10px;
             .part1_plist_img {
@@ -480,34 +476,26 @@ main {
     .title {
         margin: 0 auto;
         padding: 20px 0;
-        width: 150px;
-        height: 45px;
-        line-height: 45px;
+        @include boxsize(150px, 45px);
         text-align: center;
         position: relative;
     }
     .title::before {
         content: "";
         display: block;
-        width: 25px;
-        height: 20px;
+        @include boxsizes(25px, 20px);
         background: url(https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/floor_hd/sprite.png) no-repeat;
-        position: absolute;
-        left: 0;
-        top: 50%;
+        @include postion(left, absolute, 0, 50%);
         margin-top: -10px;
     }
     .title::after {
         content: "";
         display: block;
-        width: 25px;
-        height: 20px;
+        @include boxsizes(25px, 20px);
         background: url(https://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/sprite/floor_hd/sprite.png) no-repeat;
+        @include postion(right, absolute, 0, 50%);
         background-position: -25px 0;
-        position: absolute;
-        top: 50%;
         margin-top: -10px;
-        right: 0;
     }
 }
 
@@ -518,22 +506,18 @@ main {
         justify-content: space-between;
         flex-wrap: wrap;
         li {
-            width: 230px;
-            height: 322px;
+            @include boxsizes(230px, 310px);
             background-color: #fff;
-            height: 310px;
             margin-bottom: 10px;
             p {
-                width: 190px;
-                height: 48px;
+                @include boxsizes(190px, 48px);
                 color: #666;
                 line-height: 24px;
                 overflow: hidden;
                 margin: 0 auto;
             }
             img {
-                width: 150px;
-                height: 150px;
+                @include boxsizes(150px, 150px);
                 display: block;
                 margin: 0 auto;
                 padding: 32px;

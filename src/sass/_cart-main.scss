@@ -1,4 +1,32 @@
 @charset "utf-8";
+@mixin borderstyle($size:1px, $style:solid, $color:#ccc) {
+    border: $size $style $color;
+}
+
+@mixin boxsize($w:300px, $h:30px) {
+    width: $w;
+    height: $h;
+    line-height: $h;
+}
+
+@mixin boxsizes($w:30px, $h:30px) {
+    width: $w;
+    height: $h;
+}
+
+@mixin postion($direction:left, $positionvalue:absolute, $value1:0px, $value2:0px) {
+    @if ($direction==left) {
+        position: $positionvalue;
+        left: $value1;
+        top: $value2;
+    }
+    @else {
+        position: $positionvalue;
+        right: $value1;
+        top: $value2;
+    }
+}
+
 body,
 div,
 dl,
@@ -41,6 +69,14 @@ li {
     list-style: none;
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right
+}
+
 img {
     border: none;
 }
@@ -49,7 +85,7 @@ i {
     font-style: normal;
 }
 
-.wrappergwc {
+.inner {
     width: 990px;
     margin: 0 auto;
 }
@@ -78,7 +114,6 @@ article， aside， details， figcaption， figure， footer， header， hgrou
 img {
     display: block;
     height: auto;
-    vertical-align: top;
 }
 
 .video embed， .video object， .video iframe {
@@ -138,16 +173,13 @@ i {
 }
 
 .header .logo .link2 {
-    position: absolute;
-    right: 0;
-    top: 10px;
+    @include postion(right, absolute, 0, 10px);
     background: white;
 }
 
 .link2 b {
     display: block;
-    width: 100px;
-    height: 40px;
+    @include boxsizes(100px, 40px);
 }
 
 .cart-search {
@@ -159,21 +191,19 @@ i {
 }
 
 .cart-search #search {
-    width: 260px;
-    height: 18px;
+    @include boxsizes(260px, 18px);
     padding: 3px 5px;
     color: rgb(153, 153, 153);
     float: left;
 }
 
 .cart-search #btn {
-    width: 48px;
-    height: 24px;
+    @include boxsizes(48px, 24px);
     float: left;
     background: #c91623;
     color: white;
     text-align: center;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .empty-cart {
@@ -237,7 +267,7 @@ i {
     top: 0;
     height: 23px;
     background: #fff;
-    border: 1px solid #CECBCE;
+    @include borderstyle(1px, solid, #CECBCE);
     padding: 0 20px 0 4px;
     line-height: 23px;
     overflow: hidden;
@@ -245,11 +275,8 @@ i {
 
 .areawrap b {
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 17px;
-    height: 24px;
+    @include postion(right, absolute, 0, 0);
+    @include boxsizes(17px, 24px);
     background-position: 0 0;
     overflow: hidden;
 }
@@ -262,8 +289,7 @@ i {
 }
 
 .footline .line {
-    width: 80px;
-    height: 2px;
+    @include boxsizes(80px, 2px);
     background: #e4393c;
     position: absolute;
     z-index: 2;
@@ -289,11 +315,8 @@ i {
 }
 
 .t-checkbox {
-    height: 18px;
-    line-height: 18px;
-    padding-top: 7px;
-    width: 122px;
-    padding-left: 11px;
+    @include boxsize(122px, 18px);
+    padding: 7px 0 0 11px;
 }
 
 .cart-checkbox input {
@@ -305,17 +328,15 @@ i {
 }
 
 .t-props {
-    width: 140px;
-    height: 32px;
+    @include boxsizes(140px, 32px);
     padding: 0 20px;
     text-align: right;
 }
 
 .t-prices {
-    width: 120px;
+    @include boxsizes(120px, 32px);
     padding-right: 40px;
     text-align: right;
-    height: 32px;
 }
 
 .t-quantity {
@@ -352,8 +373,7 @@ i {
 .shop .shop-info a {
     display: block;
     margin-top: 6px;
-    width: 54px;
-    height: 18px;
+    @include boxsizes(54px, 18px);
 }
 
 .shop .shop-ex {
@@ -363,8 +383,7 @@ i {
 
 .shop .shop-ex span {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    @include boxsizes(18px, 18px);
     margin: -3px 0 0 5px;
     vertical-align: middle;
 }
@@ -404,8 +423,7 @@ i {
 .header-left-p1 span b {
     position: absolute;
     display: block;
-    width: 5px;
-    height: 6px;
+    @include boxsizes(5px, 6px);
     left: -1px;
     bottom: -5px;
 }
@@ -448,8 +466,7 @@ i {
 .b-checkbox {
     position: absolute;
     left: 10px;
-    width: 30px;
-    height: 20px;
+    @include boxsizes(30px, 20px);
     padding: 15px 0 10px 0;
 }
 
@@ -459,12 +476,9 @@ i {
 }
 
 .cart-checkbox .line-circle {
-    position: absolute;
-    left: 2px;
-    top: -5px;
+    @include postion(left, absolute, 2px, -5px);
     display: block;
-    width: 7px;
-    height: 29px;
+    @include boxsizes(7px, 29x);
 }
 
 .goods-item .b-goods {
@@ -473,16 +487,14 @@ i {
 }
 
 .b-goods .goods-name .goods-pic {
-    width: 82px;
-    height: 82px;
+    @include boxsizes(82px, 82px);
     margin-right: 10px;
-    border: 1px solid #eee;
+    @include borderstyle(1px, solid, #eee);
     float: left;
 }
 
 .b-goods .goods-name .goods-pic img {
-    width: 80px;
-    height: 80px;
+    @include boxsizes(80px, 80px);
 }
 
 .goods-d-info {
@@ -505,8 +517,7 @@ i {
 
 .promise i {
     display: inline-block;
-    width: 17px;
-    height: 16px;
+    @include boxsizes(17px, 16px);
     vertical-align: middle;
 }
 
@@ -537,12 +548,10 @@ i {
 
 .b-price .sales-promotion {
     display: block;
-    width: 53px;
-    border: 1px solid #f9d2d3;
+    @include boxsize(53px, 18pxpx);
+    @include borderstyle(1px, solid, #f9d2d3);
     color: #e4393c;
-    height: 18px;
     text-align: left;
-    line-height: 17px;
     padding: 0 15px 0 8px;
     cursor: pointer;
     background: #fff;
@@ -558,11 +567,8 @@ i {
 
 .sales-promotion b {
     display: inline-block;
-    width: 7px;
-    height: 4px;
-    position: absolute;
-    right: 8px;
-    top: 8px;
+    @include postion(right, absolute, 8px, 8px);
+    @include boxsizes(7px, 4x);
 }
 
 .b-quantity {
@@ -574,15 +580,12 @@ i {
     position: relative;
     overflow: hidden;
     height: 20px;
-    border: 1px solid #cacbcb;
+    @include borderstyle(1px, solid, #cacbcb);
 }
 
 .quantity-form a {
-    display: inline-block;
-    height: 18px;
-    line-height: 18px;
+    @include boxsizes(16px, 18x);
     padding: 1px 0;
-    width: 16px;
     text-align: center;
     color: #666;
     margin: 0;
@@ -599,11 +602,10 @@ i {
 }
 
 .quantity-form input {
-    width: 44px;
-    height: 22px;
+    @include boxsizes(44px, 22px);
     float: left;
     text-align: center;
-    background: white;
+    background: #fff;
 }
 
 .quantity-text {
@@ -613,8 +615,7 @@ i {
 }
 
 .b-sum {
-    width: 100px;
-    height: 20px;
+    @include boxsizes(100px, 20px);
     padding: 15px 40px 15px 0;
     text-align: right;
 }
@@ -631,14 +632,12 @@ i {
 
 .b-action a {
     display: block;
-    width: 75px;
-    height: 20px;
+    @include boxsizes(75px, 20px);
 }
 
 #cart-floatbar {
-    width: 988px;
-    height: 50px;
-    border: 1px solid #f0f0f0;
+    @include boxsizes(988px, 50px);
+    @include borderstyle(1px, solid, #f0f0f0);
     background: #fff;
     position: relative;
 }
@@ -652,9 +651,7 @@ i {
 
 .operation {
     float: left;
-    height: 50px;
-    width: 310px;
-    line-height: 50px;
+    @include boxsize(310px, 50px);
 }
 
 .operation a {
@@ -673,9 +670,7 @@ i {
 
 .btn-area a {
     display: block;
-    width: 96px;
-    height: 52px;
-    line-height: 52px;
+    @include boxsize(96px, 52px);
     font-size: 18px;
     font-weight: bold;
     background-color: #e54346;
@@ -685,17 +680,14 @@ i {
 
 .price-sum {
     float: right;
-    height: 43px;
+    @include boxsizes(220px, 43px);
     line-height: 20px;
     margin: 7px 20px 0 10px;
     color: #666;
-    width: 220px;
 }
 
 .price-sum span {
-    display: inline-block;
-    width: 110px;
-    height: 20px;
+    @include boxsizes(110px, 20px);
     float: left;
     text-align: left;
 }
@@ -728,8 +720,7 @@ i {
 
 .amount-sum b {
     display: inline-block;
-    width: 9px;
-    height: 5px;
+    @include boxsizes(9px, 5px);
     vertical-align: middle;
 }
 
@@ -760,21 +751,17 @@ i {
 
 .mc .guess-products {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    @include boxsizes(100%, 100%);
 }
 
 .mc .guess-products .goods-list-tab {
-    position: absolute;
-    right: 0;
-    top: -26px;
+    @include postion(right, absolute, 0, -26px);
     width: 60px;
 }
 
 .goods-list-tab .s-item {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    @include boxsizes(8px, 8px);
     margin-left: 3px;
     overflow: hidden;
     background: #aaa;
@@ -787,19 +774,16 @@ i {
 }
 
 .guess-products .panel-main {
-    width: 100%;
-    height: 100%;
+    @include boxsizes(100%, 100%);
 }
 
 .guess-products .panel-main .goods-list {
-    width: 100%;
-    height: 100%;
+    @include boxsizes(100%, 100%);
     position: absolute;
 }
 
 .goods-list ul {
-    width: 100%;
-    height: 100%;
+    @include boxsizes(100%, 100%);
     overflow: visible;
 }
 
@@ -813,13 +797,13 @@ i {
     padding: 20px;
     background: #fff;
     margin: -1px 0 0 -1px;
-    border: 1px dashed #cacaca;
+    @include borderstyle(1px, solid, #cacaca);
     overflow: hidden;
 }
 
 .goods-list ul li .goodsinfo:hover {
     z-index: 2;
-    border: 1px solid #E4393C;
+    @include borderstyle(1px, solid, #E4393C);
 }
 
 .p-img {
@@ -829,8 +813,7 @@ i {
 
 .goodsinfo .p-img img {
     vertical-align: middle;
-    width: 160px;
-    height: 160px;
+    @include boxsizes(160px, 160px);
 }
 
 .p-name {
@@ -864,22 +847,21 @@ i {
     height: 28px;
     line-height: 28px;
     padding: 0 20px;
-    border: 1px solid #999;
+    @include borderstyle(1px, solid, #999);
     color: #666;
     text-align: center;
     border-radius: 3px;
 }
 
 .p-btn a:hover {
-    border: 1px solid #E4393C;
+    @include borderstyle(1px, solid, #E4393C);
     background: #E4393C;
     color: white;
 }
 
 .p-btn b {
     display: inline-block;
-    height: 18px;
-    width: 18px;
+    @include boxsizes(18px, 18px);
     margin-right: 5px;
     overflow: hidden;
     vertical-align: middle;
@@ -887,8 +869,7 @@ i {
 
 .favorite-products {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    @include boxsizes(100%, 100%);
     display: none;
 }
 
@@ -900,8 +881,7 @@ i {
 
 .history-products {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    @include boxsizes(100%, 100%);
     display: none;
 }
 
@@ -915,17 +895,12 @@ i {
     top: 50%;
     margin-top: -31px;
     z-index: 3;
-    display: block;
-    width: 28px;
-    height: 62px;
-    line-height: 62px;
-    background: gray;
+    @include boxsize(28px, 62px);
     background: rgba(0, 0, 0, .2);
     color: #fff;
     text-align: center;
     font-size: 22px;
     font-weight: 400;
-    font-family: simsun;
 }
 
 .left-btn {

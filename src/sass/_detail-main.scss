@@ -10,6 +10,11 @@
     line-height: $h;
 }
 
+@mixin boxsizes($w:30px, $h:30px) {
+    width: $w;
+    height: $h;
+}
+
 @mixin postion($direction:left, $positionvalue:absolute, $value1:0px, $value2:0px) {
     @if ($direction==left) {
         position: $positionvalue;
@@ -22,7 +27,9 @@
         top: $value2;
     }
 }
-
+main{
+    padding-bottom: 100px;
+}
 #spic {
     @include boxsize(450px, 450px);
     @include borderstyle();
